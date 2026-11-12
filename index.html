@@ -14,9 +14,8 @@
 <script>
 var u="https://claude.ai/artifact/QokFFaaWRHhqe3bxtDTnHZ";
 var standalone=window.navigator.standalone||matchMedia("(display-mode: standalone)").matches;
-var ready=false;try{ready=localStorage.getItem("cw_ready")==="1"}catch(e){}
-if(standalone||ready){location.replace(u)}
-else{try{localStorage.setItem("cw_ready","1")}catch(e){}
-document.getElementById("t").innerHTML="공유 버튼 → <b>홈 화면에 추가</b>를 누르세요.<br>다음부터는 아이콘을 누르면 바로 Crowd Weight가 열려요.";}
+if(standalone||/[?&]app=1/.test(location.search)){location.replace(u)}
+else{try{history.replaceState(null,"",location.pathname+"?app=1")}catch(e){}
+document.getElementById("t").innerHTML="이 화면에서 공유 버튼 → <b>홈 화면에 추가</b>를 누르세요.<br>아이콘이 크레이트로 나오면 맞게 된 거예요.";}
 </script>
 </body></html>
